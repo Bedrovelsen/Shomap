@@ -1,6 +1,6 @@
 # Shomap
-## Create visualization from Shodan query
-It takes your query as an input, e.g. "hostname:gov.pl" and produces files necessary to visualize and group it accordingly by port, country, city or ISP.
+## Create visualization from local Shodan json datafiles
+Put .json file that is a json key : json array of single line shodan results named shodata.json into this directory and run python3 shomap.py to visualize and group it accordingly by port, country, city or ISP.
 
 article - https://offensiveosint.io/offensive-osint-s03-e07-shomap-advanced-shodan-visualization
 
@@ -11,15 +11,14 @@ Redacted viz - https://woj-ciech.github.io/Shomap/shomap_viz_example.html
 
 # Installation
 ```
-└─# git clone https://github.com/woj-ciech/Shodan_viz
-└─# cd Shodan_viz
-└─# pip3 install shodan
+└─# git clone https://github.com/bedrovelsen/shomap
+└─# cd Shomap
+└─# python3 shodata.json
 ```
-Put your Shodan API key in line 36 in shomap.py
 
 # Usage
 ```
-└─# python3 shomap.py -h                                                                                                                                            130 ⨯
+└─# python3 shomap.py                                                                                                                                            130 ⨯
 
     ,-:` \;',`'-, 
   .'-;_,;  ':-;_,'.
@@ -31,21 +30,17 @@ Put your Shodan API key in line 36 in shomap.py
   `.   ;/        .'
 jgs `'-._____.
 
-usage: shomap.py [-h] [-q query] [-p query]
+usage: shomap.py [-h]
 
 Create visualization out of Shodan query
 
 optional arguments:
   -h, --help            show this help message and exit
-  -q query, --query query
-                        Shodan query
-  -p query, --pages query
-                        Pages to retrieve
 ```
 
 ### Example
 ```
-└─# python3 shomap.py -p 5 --query "hostname:gov.pl"
+└─# python3 shomap.py 
 ```
 
 In the same directory run http server
